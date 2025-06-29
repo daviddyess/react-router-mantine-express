@@ -5,11 +5,12 @@ A modern, production-ready template for building full-stack React applications u
 ## Features
 
 - 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
+- 🚀 Express Server
+- ⚡️  Hot Module Replacement (HMR)
 - 📦 Asset bundling and optimization
 - 🔄 Data loading and mutations
 - 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
+- 🎉 Mantine for styling
 - 📖 [React Router docs](https://reactrouter.com/)
 
 ## Getting Started
@@ -79,7 +80,7 @@ Make sure to deploy the output of `npm run build`
 
 ## Styling
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+This template comes with [Mantine](https://mantine.dev/) already configured for a simple default starting experience
 
 ---
 
