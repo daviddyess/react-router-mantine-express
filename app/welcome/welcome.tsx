@@ -1,49 +1,68 @@
+import {
+  Card,
+  Container,
+  Flex,
+  Image,
+  List,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 import logoDark from "./logo-dark.svg";
 import logoLight from "./logo-light.svg";
 
 export function Welcome({ message }: { message: string }) {
   return (
-    <main className="flex h-screen items-center justify-center">
-      <div className="flex flex-col items-center gap-16">
-        <header className="flex flex-col items-center gap-9">
-          <h1 className="leading text-2xl font-bold text-gray-800 dark:text-gray-100">
-            {message}
-          </h1>
-          <div className="w-[500px] max-w-[100vw] p-4">
-            <img
-              src={logoLight}
-              alt="React Router"
-              className="block w-full dark:hidden"
-            />
-            <img
-              src={logoDark}
-              alt="React Router"
-              className="hidden w-full dark:block"
-            />
-          </div>
-        </header>
-        <nav className="flex flex-col items-center justify-center gap-4 rounded-3xl border border-gray-200 p-6 dark:border-gray-700">
-          <p className="leading-6 text-gray-700 dark:text-gray-200">
-            What&apos;s next?
-          </p>
-          <ul>
-            {resources.map(({ href, text, icon }) => (
-              <li key={href}>
-                <a
-                  className="group flex items-center gap-3 self-stretch p-3 leading-normal text-blue-700 hover:underline dark:text-blue-500"
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {icon}
-                  {text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-    </main>
+    <Flex
+      component="main"
+      align="center"
+      justify="center"
+      pt="lg"
+      pb="sm"
+      h="100%"
+    >
+      <Flex direction="column" gap="xl" align="center">
+        <Flex component="header" direction="column" align="center" gap="lg">
+          <Container size="xs" p="md">
+            <Image darkHidden src={logoLight} alt="React Router" />
+            <Image lightHidden src={logoDark} alt="React Router" />
+          </Container>
+        </Flex>
+        <Title>{message}</Title>
+        <Stack maw={300} w="100%" gap="md" px="md">
+          <Card component="nav" radius="xl" withBorder>
+            <Stack gap="md">
+              <Text ta="center" c="dimmed">
+                What&apos;s next?
+              </Text>
+              <List listStyleType="none">
+                {resources.map(({ href, text, icon }) => (
+                  <List.Item key={href}>
+                    <Flex
+                      component="a"
+                      gap="md"
+                      p="sm"
+                      c="blue"
+                      align="center"
+                      style={{
+                        textDecoration: "none",
+                        // hover underline?
+                      }}
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {icon}
+                      {text}
+                    </Flex>
+                  </List.Item>
+                ))}
+              </List>
+            </Stack>
+          </Card>
+        </Stack>
+      </Flex>
+    </Flex>
   );
 }
 
